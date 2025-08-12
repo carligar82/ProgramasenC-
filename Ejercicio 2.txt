@@ -1,0 +1,27 @@
+#include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
+int main ()
+{
+ ofstream f;
+ int a,i=0,j;
+ string palabras[1000],b;
+ f.open ("caos.txt");
+ do
+ {
+  cin >>a;
+  cin >>b; 
+  palabras[a-1]=b;
+  i++;
+}
+while (!f.eof());
+f.close();
+cout << "Texto ordenado:"<<endl;
+for (j=0;j<=i-1;j++)
+{
+ cout << palabras[j]<<" ";
+}
+return 0;
+}
+

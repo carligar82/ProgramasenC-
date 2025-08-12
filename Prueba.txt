@@ -1,0 +1,76 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+  string nombre;
+  int i;
+  cout<<"Dame una frase : ";
+  getline (cin,nombre);
+  cout<<"Plural : ";
+  if (((nombre[0]=='e')||(nombre[0]=='E'))&&((nombre[1]=='l')||(nombre[1]=='L')))
+  {
+     if (nombre[0]=='E')
+     {
+         nombre[0]='L';
+     }
+     else
+     {
+        nombre[0]='l';
+     }
+     if (nombre[1]=='L')
+     {
+         nombre[1]='O';
+     }
+     else
+     {
+        nombre[1]='o';
+     }
+  }
+  for (i=0;i<nombre.size();i++)
+  {
+      if ((nombre[i]==' ')&&((nombre[i+1]=='e')||(nombre[i+1]=='E'))&&((nombre[i+2]=='l')||(nombre[i+2]=='L'))&&(nombre[i+3]==' '))
+      {
+        if (nombre[i+1]=='E')
+        {
+           nombre[i+1]='L';
+        }
+        else
+        {
+           nombre[i+1]='l';
+        }
+        if (nombre[i+1]=='L')
+        {
+           nombre[i+1]='O';
+        }
+        else
+        {
+         nombre[i+1]='o';
+        }
+    }
+    if (nombre[i]==' ')
+     {
+      if ((nombre[i-1]=='a')||(nombre[i-1]=='A')||(nombre[i-1]=='e')||(nombre[i-1]=='E')||(nombre[i-1]=='i')||(nombre[i-1]=='I')||(nombre[i-1]=='o')||(nombre[i-1]=='O')||(nombre[i-1]=='u')||(nombre[i-1]=='U'))
+      {
+          cout<<"s";
+      }
+      else
+      {
+          cout<<"es";
+      }
+    }
+    cout<<nombre[i];
+  }  
+  cout << endl;
+  return 0;
+}

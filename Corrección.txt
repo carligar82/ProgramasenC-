@@ -1,0 +1,16 @@
+INCLUDES (sustituir):
+#include <fstream>
+#include <iostream>
+#include <string>
+using namespace std;
+
+ifstream f;
+f.open ("elementos.txt");
+if (f)
+{
+getline (f , nombre);
+f>> P;
+f>> paginas;
+f>> ejemplares;
+}
+f.close (f);

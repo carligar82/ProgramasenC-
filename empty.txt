@@ -1,0 +1,21 @@
+#include <iostream>
+#include <string>
+#include <cstring>
+
+using std::cout; using std::endl;
+using std::cin; using std::string;
+
+int main() {
+    string string1("This is a non-empty string");
+    string string2;
+
+    string1.empty() ?
+        cout << "[ERROR] string is empty!" << endl :
+        cout << "string value: " << string1 << endl;
+
+    string2.empty() ?
+        cout << "[ERROR] string is empty!" << endl :
+        cout << "string value: " << string1 << endl;
+
+    return EXIT_SUCCESS;
+}

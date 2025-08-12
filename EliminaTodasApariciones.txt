@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void EliminaTodasApariciones (string &frase , string pal)
+{
+ int i = frase.find (pal);
+ while (i >= 0)
+ {
+  frase.erase (i , pal.length());
+  i = frase.find (pal);
+ }
+ /*return;*/
+}
+int main()
+{
+    string frase="casa",pal="a";
+    cout<<"Antes : "<<frase<<'\n';
+    EliminaTodasApariciones(frase,pal);
+    cout<<"Después : "<<frase<<'\n';
+    return 0;
+}
+

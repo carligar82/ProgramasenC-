@@ -1,0 +1,107 @@
+#include <iostream>
+using namespace std;
+typedef float Vector[15];
+Vector x;
+void LeerParaAnyadirValor (Vector x,unsigned int &tam);
+void MostrarValores (const Vector x, unsigned int tam);
+bool CambiarValor (Vector x, float nuevoValor , unsigned int pos , unsigned int tam);
+int main()
+{
+    
+    Vector x;
+    float nuevoValor;
+    int i,op;
+    unsigned int pos,tam=0;
+    for (i=0;i<=14;i++) /*LLena el vector de valores no admitidos,o sea que en lo que respecta al programa, es como si incialmente el vector no tuviera valores*/
+    {
+        x[i]=-1;
+    }
+    do
+    {
+        tam=0;
+        for (i=0;i<=14;i++)
+        {
+            if (x[i]!=-1)
+            {
+                tam++;
+            }
+            else
+            {
+                i=14;
+            }
+        }
+        cout<<"0 : Salir."<<endl<<"1 : Meter valores."<<endl<<"2 : Sustituir valor."<<endl<<"3 : Mostrar vector."<<endl;
+        cin>>op;
+        switch (op)
+        {
+            case 1:
+                LeerParaAnyadirValor (x,tam);
+                break;
+            case 2:
+            {
+                cout<<"Posición del nuevo elemento : ";
+                cin>>pos;
+                cout<<"Nuevo valor : ";
+                cin>>nuevoValor;
+                CambiarValor (x,nuevoValor,pos,tam);
+                break;
+            }
+            case 3:
+                MostrarValores (x,tam);
+                break;
+            case 0:
+                cout<<"Programa finalizado.";
+                break;
+            default:
+                cout<<"Opción incorrecta."<<endl;
+        }
+    }
+    while (op!=0);
+    return 0;
+}
+void LeerParaAnyadirValor (Vector x,unsigned int &tam)
+{
+    float a;
+    if (tam!=15)
+    {
+         do
+         {
+             cout<<"Elemento "<<tam+1<<" del vector : ";
+             cin>>a;
+             if (a>=0)
+             {
+                 x[tam]=a;
+                 tam++;
+             }
+             else /*He incluido este else porque, aunque no lo dice el enunciado, he impuesto que se dejen de meter valores al vector al intentar introducir un número negativo.*/
+             {
+                 tam=15;
+             }
+         }
+         while ((a>=0)||(tam!=15));
+    }
+    cout<<"Entrada finalizada. Posiblemente el vector este lleno."<<endl;
+}
+void MostrarValores (const Vector x, unsigned int tam)
+{
+    unsigned int i;
+    cout<<"Vector : { ";
+    for (i=0;i<=tam-1;i++)
+    {
+        cout<<x[i]<<" ";
+    }
+    cout<<"}"<<endl;
+}
+bool CambiarValor (Vector x, float nuevoValor , unsigned int pos , unsigned int tam)
+{
+    if (pos<tam)
+    {
+        x[pos-1]=nuevoValor;
+        return 1;
+    }
+    else
+    {
+        cout<<"Error."<<endl;
+        return 0;
+    }
+}

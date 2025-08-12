@@ -1,0 +1,20 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+ ofstream F;
+ string NOMBRE_FICH1="doto";
+ F.open(NOMBRE_FICH1.c_str());
+ if(F)
+ {
+  cout <<"OK";
+ }
+ else 
+ {
+  cout << "Error abriendo fichero " << NOMBRE_FICH1 << " para escritura." << endl;
+ }	
+ F.close();	
+ return 0;	
+}
